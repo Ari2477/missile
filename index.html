@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Missile Made in Philippines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>First missile made in Philippines 🇵🇭</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -20,6 +21,7 @@
             font-family: 'Arial', sans-serif;
             overflow: hidden;
             position: relative;
+            touch-action: manipulation;
         }
 
         .modal {
@@ -28,79 +30,82 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.95);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10000;
-            backdrop-filter: blur(10px);
-            animation: modalFadeIn 1s ease-out;
+            backdrop-filter: blur(5px);
+            animation: modalFadeIn 0.8s ease-out;
+            padding: 15px;
         }
 
         .modal-content {
             background: linear-gradient(135deg, #1a2a3a, #0a1a2a);
-            padding: 50px;
-            border-radius: 30px;
-            border: 3px solid #ffaa00;
-            box-shadow: 0 0 50px #ffaa00, inset 0 0 30px rgba(255, 170, 0, 0.3);
+            padding: 30px 20px;
+            border-radius: 25px;
+            border: 2px solid #ffaa00;
+            box-shadow: 0 0 40px #ffaa00, inset 0 0 20px rgba(255, 170, 0, 0.3);
             text-align: center;
-            max-width: 600px;
+            width: 100%;
+            max-width: 350px;
             animation: modalPulse 2s infinite;
         }
 
         .modal-content h1 {
             color: #ffaa00;
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px #ffaa00;
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px #ffaa00;
             font-family: 'Courier New', monospace;
         }
 
         .modal-content p {
             color: #fff;
-            font-size: 24px;
-            margin: 20px 0;
-            line-height: 1.5;
-            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            margin: 15px 0;
+            line-height: 1.4;
         }
 
         .modal-content .signature {
             color: #0ff;
-            font-size: 20px;
-            margin-top: 30px;
+            font-size: 16px;
+            margin-top: 20px;
             font-style: italic;
             border-top: 1px solid #ffaa00;
-            padding-top: 20px;
+            padding-top: 15px;
         }
 
         .modal-content button {
-            margin-top: 30px;
-            padding: 15px 50px;
-            font-size: 24px;
+            margin-top: 20px;
+            padding: 12px 40px;
+            font-size: 20px;
             background: linear-gradient(45deg, #ffaa00, #ff6600);
             border: none;
-            border-radius: 50px;
+            border-radius: 40px;
             color: #000;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 0 30px #ffaa00;
-            transition: all 0.3s;
+            box-shadow: 0 0 25px #ffaa00;
+            transition: all 0.2s;
             border: 2px solid #fff;
+            width: 80%;
+            max-width: 250px;
+            touch-action: manipulation;
         }
 
-        .modal-content button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 50px #ffaa00;
+        .modal-content button:active {
+            transform: scale(0.95);
         }
 
         @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.8); }
+            from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes modalPulse {
-            0%, 100% { box-shadow: 0 0 50px #ffaa00; }
-            50% { box-shadow: 0 0 80px #ffaa00, 0 0 120px #ff6600; }
+            0%, 100% { box-shadow: 0 0 40px #ffaa00; }
+            50% { box-shadow: 0 0 60px #ffaa00, 0 0 80px #ff6600; }
         }
 
         .stars {
@@ -109,7 +114,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: transparent;
             pointer-events: none;
             z-index: 0;
         }
@@ -121,42 +125,34 @@
             animation: starTwinkle var(--duration) infinite;
         }
 
-        .shooting-star {
-            position: absolute;
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, white, transparent);
-            animation: shoot 3s linear infinite;
-            opacity: 0;
-        }
-
         @keyframes starTwinkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(0.8); }
-        }
-
-        @keyframes shoot {
-            0% { transform: translateX(-100px) translateY(0) rotate(45deg); opacity: 1; }
-            100% { transform: translateX(100vw) translateY(100vh) rotate(45deg); opacity: 0; }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
         .moon {
             position: fixed;
-            top: 30px;
-            right: 30px;
-            width: 90px;
-            height: 90px;
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
             background: radial-gradient(circle at 30% 30%, #f0f0f0, #a0a0a0);
             border-radius: 50%;
-            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
             z-index: 1;
-            overflow: hidden;
+            opacity: 0.8;
         }
 
-        .moon-crater {
+        .moon::before {
+            content: '';
             position: absolute;
-            background: rgba(100, 100, 100, 0.3);
+            top: 10px;
+            left: 10px;
+            width: 8px;
+            height: 8px;
+            background: #808080;
             border-radius: 50%;
+            box-shadow: 12px 12px 0 #909090;
         }
 
         .ground {
@@ -164,29 +160,44 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 150px;
-            background: linear-gradient(to bottom, #2d3a2d 0%, #1a251a 50%, #0a120a 100%);
+            height: 100px;
+            background: linear-gradient(to bottom, #2d3a2d 0%, #1a251a 100%);
             z-index: 2;
-            border-top: 3px solid #6a8a6a;
-            box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #6a8a6a;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
         }
 
-        .ground-crack {
+        .ground::before {
+            content: '';
             position: absolute;
-            bottom: 0;
-            width: 3px;
-            height: 60px;
-            background: #1a2a1a;
-            transform: rotate(var(--rot));
-            box-shadow: 0 0 10px #000;
-        }
-
-        .ground-detail {
-            position: absolute;
-            bottom: 20px;
+            top: -8px;
+            left: 0;
             width: 100%;
-            height: 2px;
-            background: repeating-linear-gradient(90deg, #5a7a5a 0px, #5a7a5a 20px, #3a5a3a 20px, #3a5a3a 40px);
+            height: 8px;
+            background: repeating-linear-gradient(45deg, #666 0px, #666 12px, #444 12px, #444 24px);
+        }
+        
+        .warning-sign {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            color: #ff0;
+            font-size: 11px;
+            font-weight: bold;
+            border: 1px solid #ff0;
+            padding: 5px 10px;
+            border-radius: 4px;
+            animation: warningFlash 1s infinite;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(2px);
+        }
+
+        @keyframes warningFlash {
+            0%, 100% { opacity: 1; border-color: #ff0; color: #ff0; }
+            50% { opacity: 0.6; border-color: #f00; color: #f00; }
         }
 
         .launch-complex {
@@ -196,16 +207,17 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             width: 100%;
+            padding: 0 15px;
+            margin-top: -30px;
         }
 
         .launchpad {
             position: relative;
-            width: 350px;
-            height: 250px;
-            margin-bottom: 20px;
-            perspective: 1000px;
+            width: 280px;
+            height: 200px;
+            margin-bottom: 10px;
+            transform: scale(0.9);
         }
 
         .pad-base {
@@ -213,99 +225,46 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 300px;
-            height: 50px;
+            width: 220px;
+            height: 30px;
             background: linear-gradient(to bottom, #8a8a8a, #4a4a4a);
-            border-radius: 20px 20px 0 0;
-            border: 3px solid #aaa;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .pad-support-left, .pad-support-right {
-            position: absolute;
-            bottom: 50px;
-            width: 100px;
-            height: 70px;
-            background: linear-gradient(135deg, #6a6a6a, #3a3a3a);
-            clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
-            border: 2px solid #9a9a9a;
-            box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .pad-support-left {
-            left: 30px;
-            transform: skewX(-5deg);
-        }
-
-        .pad-support-right {
-            right: 30px;
-            transform: skewX(5deg);
-        }
-
-        .pad-detail {
-            position: absolute;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 20px;
-            background: #333;
-            border: 2px solid #666;
-            border-radius: 10px;
-            box-shadow: inset 0 0 20px #000;
-        }
-
-        .service-tower {
-            position: absolute;
-            bottom: 50px;
-            left: 10%;
-            width: 30px;
-            height: 200px;
-            background: repeating-linear-gradient(90deg, #888, #888 5px, #666 5px, #666 10px);
+            border-radius: 15px 15px 0 0;
             border: 2px solid #aaa;
-            transform: skewX(-3deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
         }
 
-        .service-tower-right {
-            left: auto;
-            right: 10%;
-            transform: skewX(3deg);
-        }
-
-        .umbilical-cable {
+        .pad-support {
             position: absolute;
-            bottom: 150px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 80px;
-            background: #444;
-            border: 2px solid #777;
-            border-radius: 10px;
-            box-shadow: inset 0 0 10px #000;
+            width: 150px;
+            height: 35px;
+            background: linear-gradient(135deg, #6a6a6a, #3a3a3a);
+            clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+            border-left: 2px solid #9a9a9a;
+            border-right: 2px solid #9a9a9a;
         }
 
         .missile {
             position: relative;
-            width: 80px;
-            height: 320px;
+            width: 60px;
+            height: 240px;
             margin: 0 auto;
             cursor: pointer;
-            transition: transform 0.2s;
             z-index: 20;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8));
+            filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.8));
             animation: float 4s ease-in-out infinite;
-            transform-style: preserve-3d;
+            top: 20px;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(-5px) rotateX(0deg); }
-            50% { transform: translateY(5px) rotateX(2deg); }
+            0%, 100% { transform: translateY(-3px); }
+            50% { transform: translateY(3px); }
         }
 
-        .missile:hover {
-            transform: scale(1.05) translateY(-10px);
-            filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.9));
+        .missile:active {
+            transform: scale(1.02);
         }
 
         .missile-body {
@@ -313,300 +272,228 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 300px;
+            width: 60px;
+            height: 220px;
             background: linear-gradient(135deg, 
                 #e5e5e5 0%, 
-                #b5b5b5 20%, 
-                #858585 50%, 
-                #656565 80%,
-                #454545 100%);
-            border-radius: 45% 45% 15px 15px;
+                #b5b5b5 30%, 
+                #858585 60%, 
+                #656565 100%);
+            border-radius: 45% 45% 10px 10px;
             box-shadow: 
-                inset -8px -12px 20px rgba(0, 0, 0, 0.7),
-                inset 8px 8px 20px rgba(255, 255, 255, 0.3),
-                0 20px 40px rgba(0, 0, 0, 0.8);
-            border-left: 2px solid #fff;
-            border-right: 2px solid #555;
+                inset -5px -8px 15px rgba(0, 0, 0, 0.7),
+                inset 5px 5px 10px rgba(255, 255, 255, 0.2);
+            border-left: 1px solid #fff;
+            border-right: 1px solid #555;
             overflow: hidden;
         }
 
         .missile-segment {
             position: absolute;
             width: 100%;
-            height: 40px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+            height: 30px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
             background: linear-gradient(90deg, 
                 transparent 0%, 
-                rgba(255, 255, 255, 0.15) 50%, 
+                rgba(255, 255, 255, 0.1) 50%, 
                 transparent 100%);
         }
 
         .missile-segment:nth-child(1) { top: 0; }
-        .missile-segment:nth-child(2) { top: 40px; }
-        .missile-segment:nth-child(3) { top: 80px; }
-        .missile-segment:nth-child(4) { top: 120px; }
-        .missile-segment:nth-child(5) { top: 160px; }
-        .missile-segment:nth-child(6) { top: 200px; }
-        .missile-segment:nth-child(7) { top: 240px; }
-
+        .missile-segment:nth-child(2) { top: 30px; }
+        .missile-segment:nth-child(3) { top: 60px; }
+        .missile-segment:nth-child(4) { top: 90px; }
+        .missile-segment:nth-child(5) { top: 120px; }
+        .missile-segment:nth-child(6) { top: 150px; }
+        .missile-segment:nth-child(7) { top: 180px; }
+        
         .missile-body::before {
             content: '';
             position: absolute;
-            top: -35px;
+            top: -25px;
             left: 0;
             width: 100%;
-            height: 50px;
+            height: 35px;
             background: inherit;
             border-radius: 50% 50% 0 0;
-            box-shadow: inset -5px -8px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: inset -3px -5px 10px rgba(0, 0, 0, 0.5);
         }
 
         .missile-body::after {
             content: '';
             position: absolute;
-            top: -55px;
+            top: -40px;
             left: 50%;
             transform: translateX(-50%);
-            width: 25px;
-            height: 30px;
-            background: radial-gradient(circle at 30% 30%, #ffcc00, #ff5500, #ff0000);
+            width: 18px;
+            height: 22px;
+            background: radial-gradient(circle at 30% 30%, #ffcc00, #ff5500);
             border-radius: 50%;
-            filter: blur(4px);
+            filter: blur(3px);
             animation: noseGlow 1.5s ease-in-out infinite;
-            box-shadow: 0 0 30px #ff5500;
+            box-shadow: 0 0 20px #ff5500;
         }
 
         @keyframes noseGlow {
-            0%, 100% { opacity: 0.8; width: 25px; height: 30px; filter: blur(4px); }
-            50% { opacity: 1; width: 30px; height: 35px; filter: blur(5px); box-shadow: 0 0 50px #ffaa00; }
+            0%, 100% { opacity: 0.8; width: 18px; height: 22px; }
+            50% { opacity: 1; width: 20px; height: 24px; filter: blur(4px); }
         }
 
         .panel-line {
             position: absolute;
             width: 100%;
-            height: 2px;
-            background: rgba(0, 0, 0, 0.4);
+            height: 1px;
+            background: rgba(0, 0, 0, 0.3);
             left: 0;
         }
 
-        .panel-line:nth-child(8) { top: 30px; }
-        .panel-line:nth-child(9) { top: 80px; }
-        .panel-line:nth-child(10) { top: 130px; }
-        .panel-line:nth-child(11) { top: 180px; }
-        .panel-line:nth-child(12) { top: 230px; }
+        .panel-line:nth-child(8) { top: 25px; }
+        .panel-line:nth-child(9) { top: 65px; }
+        .panel-line:nth-child(10) { top: 105px; }
+        .panel-line:nth-child(11) { top: 145px; }
+        .panel-line:nth-child(12) { top: 185px; }
 
         .warning-strip {
             position: absolute;
-            top: 70px;
+            top: 55px;
             left: 0;
             width: 100%;
-            height: 25px;
+            height: 18px;
             background: repeating-linear-gradient(45deg, 
-                #ff0000 0px, #ff0000 10px, 
-                #ffcc00 10px, #ffcc00 20px);
-            opacity: 0.9;
-            border-top: 2px solid #000;
-            border-bottom: 2px solid #000;
+                #ff0000 0px, #ff0000 6px, 
+                #ffcc00 6px, #ffcc00 12px);
+            opacity: 0.8;
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
         }
 
         .stencil {
             position: absolute;
             color: #000;
-            font-size: 11px;
+            font-size: 8px;
             font-weight: bold;
             font-family: 'Courier New', monospace;
             background: rgba(255, 255, 255, 0.3);
-            padding: 2px 5px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: inset 0 0 3px #000;
+            padding: 1px 3px;
+            border-radius: 2px;
         }
 
-        .stencil-1 { top: 25px; left: 10px; transform: rotate(90deg); transform-origin: left; }
-        .stencil-2 { top: 110px; right: 5px; }
-        .stencil-3 { bottom: 45px; left: 5px; }
-        .stencil-4 { top: 160px; left: 10px; background: rgba(255, 0, 0, 0.5); color: #fff; }
-
-        .payload-bay {
-            position: absolute;
-            top: 140px;
-            left: 15px;
-            width: 50px;
-            height: 30px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid #fff;
-            border-radius: 5px;
-            box-shadow: inset 0 0 15px #000;
-        }
-
-        .payload-bay::before {
-            content: '⚠';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #ff0000;
-            font-size: 18px;
-            text-shadow: 0 0 10px #ff0000;
-        }
+        .stencil-1 { top: 15px; left: 5px; }
+        .stencil-2 { top: 85px; right: 3px; }
+        .stencil-3 { bottom: 30px; left: 3px; }
 
         .fins {
             position: absolute;
-            bottom: 40px;
+            bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
-            width: 160px;
-            height: 100px;
-            perspective: 500px;
+            width: 100px;
+            height: 60px;
         }
 
         .fin {
             position: absolute;
             background: linear-gradient(135deg, #8a8a8a, #4a4a4a);
-            border: 2px solid #aaa;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5), inset 0 5px 10px rgba(255, 255, 255, 0.2);
+            border: 1px solid #aaa;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
-        .fin-main-left {
-            left: -45px;
-            width: 30px;
-            height: 100px;
+        .fin-left {
+            left: -25px;
+            width: 15px;
+            height: 50px;
             clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
-            transform: skewY(-8deg) rotateY(15deg);
+            transform: skewY(-5deg);
         }
 
-        .fin-main-right {
-            right: -45px;
-            width: 30px;
-            height: 100px;
+        .fin-right {
+            right: -25px;
+            width: 15px;
+            height: 50px;
             clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
-            transform: skewY(8deg) rotateY(-15deg);
+            transform: skewY(5deg);
         }
 
-        .fin-rear {
-            bottom: -20px;
+        .fin-bottom {
+            bottom: -12px;
             left: 50%;
-            transform: translateX(-50%) rotateX(25deg);
-            width: 60px;
-            height: 30px;
+            transform: translateX(-50%) rotateX(15deg);
+            width: 35px;
+            height: 18px;
             clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
-            background: linear-gradient(to bottom, #9a9a9a, #5a5a5a);
-        }
-
-        .fin-detail {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.3);
-            top: 50%;
         }
 
         .exhaust {
             position: absolute;
-            bottom: -15px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 30px;
+            width: 35px;
+            height: 20px;
             background: radial-gradient(ellipse at 50% 0%, #ff8800, #442200);
             border-radius: 50%;
-            filter: blur(5px);
+            filter: blur(4px);
             opacity: 0.7;
             animation: exhaustPulse 0.8s ease-in-out infinite;
         }
 
         @keyframes exhaustPulse {
             0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
-            50% { opacity: 1; transform: translateX(-50%) scale(1.2); filter: blur(6px); }
-        }
-
-        .exhaust-nozzle {
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
-            background: #333;
-            border-radius: 10px 10px 0 0;
-            border: 2px solid #777;
-            box-shadow: inset 0 5px 10px #000;
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
         }
 
         .countdown-container {
             text-align: center;
-            margin-top: 15px;
-            padding: 12px 25px;
+            margin-top: 0px;
+            padding: 8px 20px;
             background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #0ff;
-            border-radius: 12px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-            backdrop-filter: blur(3px);
+            border: 1.5px solid #0ff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            backdrop-filter: blur(2px);
         }
 
         .countdown {
-            font-size: 60px;
+            font-size: 48px;
             font-weight: bold;
             color: #0ff;
-            text-shadow: 0 0 20px #0ff, 0 0 40px #00f;
+            text-shadow: 0 0 15px #0ff, 0 0 30px #00f;
             font-family: 'Courier New', monospace;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             line-height: 1;
             animation: countdownPulse 1s ease-in-out infinite;
         }
 
         @keyframes countdownPulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.05); }
         }
 
         .countdown-label {
             color: #fff;
-            font-size: 14px;
-            letter-spacing: 3px;
-            margin-top: 5px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-top: 3px;
             text-transform: uppercase;
         }
 
         .launch-btn {
-            margin-top: 25px;
-            padding: 12px 45px;
-            font-size: 22px;
+            margin-top: 15px;
+            padding: 10px 40px;
+            font-size: 20px;
             font-weight: bold;
             color: white;
             background: linear-gradient(45deg, #ff2200, #cc0000);
             border: none;
             border-radius: 40px;
             cursor: pointer;
-            box-shadow: 0 0 30px #ff0000, 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: all 0.2s;
+            box-shadow: 0 0 25px #ff0000, 0 3px 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.1s;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid #ffaa00;
-        }
-
-        .launch-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .launch-btn:hover::before {
-            left: 100%;
-        }
-
-        .launch-btn:hover:not(:disabled) {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px #ff3300, 0 8px 25px rgba(0, 0, 0, 0.6);
+            letter-spacing: 2px;
+            border: 1.5px solid #ffaa00;
+            touch-action: manipulation;
+            width: 200px;
         }
 
         .launch-btn:active:not(:disabled) {
@@ -616,145 +503,21 @@
         .launch-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
-            box-shadow: 0 0 20px #ff0000;
+            box-shadow: 0 0 15px #ff0000;
         }
+
 
         .status {
-            margin-top: 12px;
+            margin-top: 10px;
             color: #0ff;
-            font-size: 16px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px #0ff;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px #0ff;
             background: rgba(0, 0, 0, 0.4);
-            padding: 8px 20px;
-            border-radius: 8px;
+            padding: 6px 15px;
+            border-radius: 6px;
             border: 1px solid #0ff;
-        }
-
-        .telemetry-panel {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            color: #0f0;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #0f0;
-            z-index: 200;
-            backdrop-filter: blur(3px);
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
-            min-width: 280px;
-        }
-
-        .telemetry-title {
-            color: #ff0;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #0f0;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .telemetry-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-            padding: 3px 0;
-            border-bottom: 1px dotted rgba(0, 255, 0, 0.3);
-        }
-
-        .telemetry-label {
-            color: #0f0;
-        }
-
-        .telemetry-value {
-            color: #ff0;
-            font-weight: bold;
-        }
-
-        .mission-panel {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #0ff;
-            border-radius: 10px;
-            padding: 15px;
-            color: #0ff;
-            font-family: 'Courier New', monospace;
-            font-size: 12px;
-            z-index: 200;
-            backdrop-filter: blur(3px);
-            min-width: 250px;
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
-        }
-
-        .mission-title {
-            color: #ff0;
-            font-size: 14px;
-            text-align: center;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #0ff;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .mission-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 5px 0;
-        }
-
-        .mission-label {
-            color: #0ff;
-        }
-
-        .mission-value {
-            color: #ff0;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            margin: 8px 0;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #0f0, #ff0);
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        .warning-sign {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: #ff0;
-            font-size: 14px;
-            font-weight: bold;
-            border: 2px solid #ff0;
-            padding: 8px 15px;
-            border-radius: 5px;
-            animation: warningFlash 0.8s infinite;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 200;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            backdrop-filter: blur(3px);
-        }
-
-        @keyframes warningFlash {
-            0%, 100% { opacity: 1; border-color: #ff0; color: #ff0; box-shadow: 0 0 20px #ff0; }
-            50% { opacity: 0.7; border-color: #f00; color: #f00; box-shadow: 0 0 30px #f00; }
         }
 
         .effects {
@@ -769,12 +532,11 @@
 
         .particle {
             position: absolute;
-            background: radial-gradient(circle, #ffaa00, #ff4400, #ff0000);
+            background: radial-gradient(circle, #ffaa00, #ff4400);
             border-radius: 50%;
-            width: 5px;
-            height: 5px;
-            animation: particleFly 1.2s ease-out forwards;
-            filter: blur(1px);
+            width: 4px;
+            height: 4px;
+            animation: particleFly 1s ease-out forwards;
         }
 
         @keyframes particleFly {
@@ -784,62 +546,61 @@
 
         .smoke-particle {
             position: absolute;
-            background: rgba(120, 120, 120, 0.5);
+            background: rgba(120, 120, 120, 0.4);
             border-radius: 50%;
-            filter: blur(15px);
-            animation: smokeRise 2.5s ease-out forwards;
+            filter: blur(8px);
+            animation: smokeRise 2s ease-out forwards;
         }
 
         @keyframes smokeRise {
-            0% { transform: translate(-50%, 0) scale(0.5); opacity: 0.8; }
-            100% { transform: translate(-50%, -500px) scale(4); opacity: 0; }
+            0% { transform: translate(-50%, 0) scale(0.5); opacity: 0.7; }
+            100% { transform: translate(-50%, -300px) scale(3); opacity: 0; }
         }
 
         .shockwave {
             position: absolute;
-            border: 3px solid rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 50%;
-            animation: shockwaveExpand 1.2s ease-out forwards;
-            filter: blur(2px);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            animation: shockwaveExpand 1s ease-out forwards;
+            filter: blur(1px);
         }
 
         @keyframes shockwaveExpand {
-            0% { width: 60px; height: 60px; opacity: 1; }
-            100% { width: 700px; height: 700px; opacity: 0; }
+            0% { width: 40px; height: 40px; opacity: 1; }
+            100% { width: 400px; height: 400px; opacity: 0; }
         }
 
         .trail {
             position: absolute;
-            width: 15px;
+            width: 8px;
             height: 0;
-            background: linear-gradient(to top, #ffaa00, #ff4400, transparent);
-            filter: blur(8px);
-            animation: trailRise 2s ease-out forwards;
+            background: linear-gradient(to top, #ffaa00, transparent);
+            filter: blur(4px);
+            animation: trailRise 1.5s ease-out forwards;
         }
 
         @keyframes trailRise {
             0% { height: 0; opacity: 1; }
-            100% { height: 800px; opacity: 0; }
+            100% { height: 400px; opacity: 0; }
         }
 
         .flame {
             position: absolute;
-            bottom: -30px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
-            height: 100px;
-            background: radial-gradient(circle at 50% 0%, #ffffff, #ffff00, #ff8800, #ff4400);
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle at 50% 0%, #ffffff, #ffff00, #ff8800);
             border-radius: 50%;
-            filter: blur(10px);
+            filter: blur(8px);
             opacity: 0;
             animation: flameFlicker 0.1s infinite;
         }
 
         @keyframes flameFlicker {
             0%, 100% { transform: translateX(-50%) scaleY(1); opacity: 0.9; }
-            50% { transform: translateX(-50%) scaleY(1.2); opacity: 1; }
+            50% { transform: translateX(-50%) scaleY(1.1); opacity: 1; }
         }
 
         .glitch {
@@ -853,7 +614,6 @@
             z-index: 999;
             opacity: 0;
             transition: opacity 0.05s;
-            mix-blend-mode: multiply;
         }
 
         .glitch.active {
@@ -862,10 +622,9 @@
 
         @keyframes shake {
             0%, 100% { transform: translate(0, 0); }
-            20% { transform: translate(-2px, 1px); }
-            40% { transform: translate(2px, -1px); }
-            60% { transform: translate(-1px, 1px); }
-            80% { transform: translate(1px, -1px); }
+            25% { transform: translate(-2px, 1px); }
+            50% { transform: translate(2px, -1px); }
+            75% { transform: translate(-1px, 0); }
         }
 
         .shake {
@@ -873,50 +632,72 @@
         }
 
         @keyframes launchMissile {
-            0% { transform: translateY(0) rotate(0deg); filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.8)); }
-            15% { transform: translateY(-100px) rotate(-1deg); }
-            30% { transform: translateY(-220px) rotate(2deg); }
-            45% { transform: translateY(-360px) rotate(-2deg); }
-            60% { transform: translateY(-520px) rotate(3deg); }
-            75% { transform: translateY(-700px) rotate(-1deg); opacity: 0.9; }
-            90% { transform: translateY(-880px) rotate(1deg); opacity: 0.5; }
-            100% { transform: translateY(-1100px) rotate(0deg); opacity: 0; }
+            0% { transform: translateY(0) rotate(0deg); }
+            20% { transform: translateY(-60px) rotate(-1deg); }
+            40% { transform: translateY(-140px) rotate(1deg); }
+            60% { transform: translateY(-240px) rotate(-1deg); }
+            80% { transform: translateY(-360px) rotate(1deg); opacity: 0.8; }
+            100% { transform: translateY(-500px) rotate(0deg); opacity: 0; }
+        }
+
+        .simple-telemetry {
+            position: fixed;
+            bottom: 8px;
+            left: 8px;
+            right: 8px;
+            display: flex;
+            justify-content: space-between;
+            color: #0f0;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid #0f0;
+            z-index: 200;
+            backdrop-filter: blur(2px);
+        }
+
+        .simple-telemetry span {
+            color: #ff0;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
-            <h1>🇵🇭 Nah I'd win</h1>
+            <h1>🇵🇭 Nah I'd Win 🇵🇭</h1>
             <p>As a Filipino, I am proud to be able to create a missile 😊😊</p>
             <p>— New programming language: LINUX</p>
-            <div class="signature">~ Master Developer ~</div>
-            <button onclick="closeModal()">ENTER LAUNCH SITE</button>
+            <div class="signature">~ Saging Sir ~</div>
+            <button onclick="closeModal()">ENTER</button>
         </div>
     </div>
 
     <div class="stars" id="stars"></div>
-    
-    <div class="moon" id="moon"></div>
 
-    <div class="ground" id="ground"></div>
+    <div class="moon"></div>
 
-    <div class="warning-sign">⚠ LIVE LAUNCH SITE - CLEAR AREA ⚠</div>
-    
+    <div class="ground"></div>
+
+    <div class="warning-sign">⚠ LIVE ⚠</div>
+
+    <div class="simple-telemetry">
+        <span id="simple-status">STANDBY</span>
+        <span id="simple-time">00:05</span>
+    </div>
+
     <div class="effects" id="effects"></div>
 
     <div class="glitch" id="glitch"></div>
 
     <div class="launch-complex">
+
         <div class="launchpad">
             <div class="pad-base"></div>
-            <div class="pad-support-left"></div>
-            <div class="pad-support-right"></div>
-            <div class="pad-detail"></div>
-            <div class="service-tower"></div>
-            <div class="service-tower service-tower-right"></div>
-            <div class="umbilical-cable"></div>
-            
+            <div class="pad-support"></div>
+
             <div class="missile" id="missile">
                 <div class="missile-body">
                     <div class="missile-segment"></div>
@@ -933,358 +714,126 @@
                     <div class="panel-line"></div>
                     <div class="warning-strip"></div>
                     <div class="stencil stencil-1">USAF</div>
-                    <div class="stencil stencil-2">AGM-158C</div>
+                    <div class="stencil stencil-2">AGM-158</div>
                     <div class="stencil stencil-3">DANGER</div>
-                    <div class="stencil stencil-4">EXPLOSIVE</div>
-                    <div class="payload-bay"></div>
                 </div>
                 
                 <div class="fins">
-                    <div class="fin fin-main-left">
-                        <div class="fin-detail"></div>
-                    </div>
-                    <div class="fin fin-main-right">
-                        <div class="fin-detail"></div>
-                    </div>
-                    <div class="fin fin-rear">
-                        <div class="fin-detail"></div>
-                    </div>
+                    <div class="fin fin-left"></div>
+                    <div class="fin fin-right"></div>
+                    <div class="fin fin-bottom"></div>
                 </div>
                 
-                <div class="exhaust-nozzle"></div>
                 <div class="exhaust" id="exhaust"></div>
             </div>
         </div>
 
         <div class="countdown-container">
             <div class="countdown" id="countdown">5</div>
-            <div class="countdown-label">SECONDS TO LAUNCH</div>
+            <div class="countdown-label">SECONDS</div>
         </div>
 
         <button class="launch-btn" id="launchBtn">LAUNCH</button>
 
-        <div class="status" id="status">STANDING BY</div>
+        <div class="status" id="status">STANDBY</div>
     </div>
 
     <script>
         function closeModal() {
             document.getElementById('welcomeModal').style.display = 'none';
-            if (soundEffects) {
-                soundEffects.playAmbient();
-            }
         }
 
         class SoundEffects {
             constructor() {
                 this.audioContext = null;
-                this.isMuted = false;
                 this.initAudio();
             }
 
             initAudio() {
                 try {
                     this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                } catch (e) {
-                    console.log('Web Audio API not supported');
-                }
+                } catch (e) {}
             }
 
             async playSound(type) {
-                if (this.isMuted || !this.audioContext) return;
-
-                if (this.audioContext.state === 'suspended') {
-                    await this.audioContext.resume();
-                }
+                if (!this.audioContext) return;
+                if (this.audioContext.state === 'suspended') await this.audioContext.resume();
 
                 const now = this.audioContext.currentTime;
 
-                switch(type) {
-                    case 'warning':
-                        this.playWarning(now);
-                        break;
-                    case 'countdown':
-                        this.playCountdown(now);
-                        break;
-                    case 'launch':
-                        this.playLaunch(now);
-                        break;
-                    case 'explosion':
-                        this.playExplosion(now);
-                        break;
-                    case 'beep':
-                        this.playBeep(now);
-                        break;
-                    case 'ambient':
-                        this.playAmbient(now);
-                        break;
-                }
-            }
-
-            playWarning(now) {
-                for (let i = 0; i < 3; i++) {
+                if (type === 'countdown') {
                     const osc = this.audioContext.createOscillator();
                     const gain = this.audioContext.createGain();
-                    
-                    osc.type = 'sawtooth';
-                    osc.frequency.setValueAtTime(440, now + i * 0.2);
-                    osc.frequency.exponentialRampToValueAtTime(880, now + i * 0.2 + 0.2);
-                    
-                    gain.gain.setValueAtTime(0.15, now + i * 0.2);
-                    gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.2 + 0.4);
-                    
+                    osc.type = 'sine';
+                    osc.frequency.value = 880;
+                    gain.gain.value = 0.1;
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
                     osc.connect(gain);
                     gain.connect(this.audioContext.destination);
-                    
-                    osc.start(now + i * 0.2);
-                    osc.stop(now + i * 0.2 + 0.4);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
                 }
-            }
-
-            playCountdown(now) {
-                const osc = this.audioContext.createOscillator();
-                const gain = this.audioContext.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(880, now);
-                
-                gain.gain.setValueAtTime(0.12, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.15);
-                
-                osc.connect(gain);
-                gain.connect(this.audioContext.destination);
-                
-                osc.start(now);
-                osc.stop(now + 0.15);
-            }
-
-            playBeep(now) {
-                const osc = this.audioContext.createOscillator();
-                const gain = this.audioContext.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(440, now);
-                
-                gain.gain.setValueAtTime(0.08, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.08);
-                
-                osc.connect(gain);
-                gain.connect(this.audioContext.destination);
-                
-                osc.start(now);
-                osc.stop(now + 0.08);
-            }
-
-            playLaunch(now) {
-                const osc1 = this.audioContext.createOscillator();
-                const osc2 = this.audioContext.createOscillator();
-                const osc3 = this.audioContext.createOscillator();
-                const gain = this.audioContext.createGain();
-                const filter = this.audioContext.createBiquadFilter();
-                
-                osc1.type = 'sawtooth';
-                osc2.type = 'triangle';
-                osc3.type = 'square';
-                
-                osc1.frequency.setValueAtTime(60, now);
-                osc1.frequency.exponentialRampToValueAtTime(30, now + 3);
-                
-                osc2.frequency.setValueAtTime(120, now);
-                osc2.frequency.exponentialRampToValueAtTime(60, now + 3);
-                
-                osc3.frequency.setValueAtTime(250, now);
-                osc3.frequency.exponentialRampToValueAtTime(120, now + 3);
-                
-                filter.type = 'lowpass';
-                filter.frequency.setValueAtTime(500, now);
-                filter.frequency.exponentialRampToValueAtTime(150, now + 3);
-                
-                gain.gain.setValueAtTime(0.4, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 4);
-                
-                osc1.connect(filter);
-                osc2.connect(filter);
-                osc3.connect(filter);
-                filter.connect(gain);
-                gain.connect(this.audioContext.destination);
-                
-                osc1.start(now);
-                osc2.start(now);
-                osc3.start(now);
-                
-                osc1.stop(now + 4);
-                osc2.stop(now + 4);
-                osc3.stop(now + 4);
-            }
-
-            playExplosion(now) {
-                const osc = this.audioContext.createOscillator();
-                const gain = this.audioContext.createGain();
-                
-                osc.type = 'sawtooth';
-                osc.frequency.setValueAtTime(80, now);
-                osc.frequency.exponentialRampToValueAtTime(20, now + 1.5);
-                
-                gain.gain.setValueAtTime(0.5, now);
-                gain.gain.exponentialRampToValueAtTime(0.01, now + 2);
-                
-                osc.connect(gain);
-                gain.connect(this.audioContext.destination);
-                
-                osc.start(now);
-                osc.stop(now + 2);
-            }
-
-            playAmbient(now) {
-                const osc = this.audioContext.createOscillator();
-                const gain = this.audioContext.createGain();
-                
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(30, now);
-                
-                gain.gain.setValueAtTime(0.02, now);
-                
-                osc.connect(gain);
-                gain.connect(this.audioContext.destination);
-                
-                osc.start(now);
-                osc.stop(now + 3600); 
+                else if (type === 'launch') {
+                    const osc = this.audioContext.createOscillator();
+                    const gain = this.audioContext.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.value = 100;
+                    osc.frequency.exponentialRampToValueAtTime(40, now + 2);
+                    gain.gain.value = 0.3;
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 2.5);
+                    osc.connect(gain);
+                    gain.connect(this.audioContext.destination);
+                    osc.start(now);
+                    osc.stop(now + 2.5);
+                }
+                else if (type === 'explosion') {
+                    const osc = this.audioContext.createOscillator();
+                    const gain = this.audioContext.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.value = 80;
+                    osc.frequency.exponentialRampToValueAtTime(20, now + 1);
+                    gain.gain.value = 0.4;
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 1.5);
+                    osc.connect(gain);
+                    gain.connect(this.audioContext.destination);
+                    osc.start(now);
+                    osc.stop(now + 1.5);
+                }
             }
         }
 
-        class LaunchController {
+        // Mobile Launch Controller
+        class MobileLaunchController {
             constructor() {
                 this.missile = document.getElementById('missile');
                 this.countdownEl = document.getElementById('countdown');
                 this.launchBtn = document.getElementById('launchBtn');
                 this.statusEl = document.getElementById('status');
-                this.telemetryStatus = document.getElementById('telemetry-status');
-                this.telemetryTime = document.getElementById('telemetry-time');
-                this.telemetryFuel = document.getElementById('telemetry-fuel');
-                this.telemetryTemp = document.getElementById('telemetry-temp');
-                this.telemetryGuidance = document.getElementById('telemetry-guidance');
-                this.telemetryPayload = document.getElementById('telemetry-payload');
-                this.telemetryAltitude = document.getElementById('telemetry-altitude');
-                this.telemetryVelocity = document.getElementById('telemetry-velocity');
-                this.telemetryThrust = document.getElementById('telemetry-thrust');
-                this.telemetryTrajectory = document.getElementById('telemetry-trajectory');
-                this.systemCheck = document.getElementById('system-check');
-                this.launchAuth = document.getElementById('launch-auth');
-                this.rangeSafety = document.getElementById('range-safety');
-                this.weather = document.getElementById('weather');
-                this.wind = document.getElementById('wind');
-                this.progressFuel = document.getElementById('progress-fuel');
-                this.fuelPercent = document.getElementById('fuel-percent');
-                this.progressOxidizer = document.getElementById('progress-oxidizer');
-                this.oxidizerPercent = document.getElementById('oxidizer-percent');
-                this.stage = document.getElementById('stage');
+                this.simpleStatus = document.getElementById('simple-status');
+                this.simpleTime = document.getElementById('simple-time');
                 this.glitch = document.getElementById('glitch');
                 this.effects = document.getElementById('effects');
                 
-                this.soundEffects = new SoundEffects();
+                this.sound = new SoundEffects();
                 this.countdown = 5;
                 this.isLaunching = false;
                 this.interval = null;
-                this.altitude = 0;
-                this.velocity = 0;
-                this.thrust = 0;
                 
                 this.createStars();
-                this.createMoonCraters();
-                this.createGroundCracks();
-                this.createShootingStars();
-                this.initEventListeners();
-                this.startTelemetryUpdates();
             }
 
             createStars() {
-                const starsContainer = document.getElementById('stars');
-                for (let i = 0; i < 150; i++) {
+                const stars = document.getElementById('stars');
+                for (let i = 0; i < 50; i++) {
                     const star = document.createElement('div');
                     star.className = 'star';
-                    star.style.width = Math.random() * 3 + 1 + 'px';
+                    star.style.width = Math.random() * 2 + 1 + 'px';
                     star.style.height = star.style.width;
                     star.style.left = Math.random() * 100 + '%';
                     star.style.top = Math.random() * 100 + '%';
-                    star.style.setProperty('--duration', (Math.random() * 4 + 2) + 's');
-                    starsContainer.appendChild(star);
+                    star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                    stars.appendChild(star);
                 }
-            }
-
-            createShootingStars() {
-                const starsContainer = document.getElementById('stars');
-                for (let i = 0; i < 3; i++) {
-                    const shootingStar = document.createElement('div');
-                    shootingStar.className = 'shooting-star';
-                    shootingStar.style.top = Math.random() * 50 + '%';
-                    shootingStar.style.animationDelay = Math.random() * 10 + 's';
-                    starsContainer.appendChild(shootingStar);
-                }
-            }
-
-            createMoonCraters() {
-                const moon = document.getElementById('moon');
-                for (let i = 0; i < 5; i++) {
-                    const crater = document.createElement('div');
-                    crater.className = 'moon-crater';
-                    crater.style.width = Math.random() * 15 + 5 + 'px';
-                    crater.style.height = crater.style.width;
-                    crater.style.left = Math.random() * 70 + '%';
-                    crater.style.top = Math.random() * 70 + '%';
-                    moon.appendChild(crater);
-                }
-            }
-
-            createGroundCracks() {
-                const ground = document.getElementById('ground');
-                for (let i = 0; i < 15; i++) {
-                    const crack = document.createElement('div');
-                    crack.className = 'ground-crack';
-                    crack.style.left = Math.random() * 100 + '%';
-                    crack.style.setProperty('--rot', (Math.random() * 30 - 15) + 'deg');
-                    ground.appendChild(crack);
-                }
-                const detail = document.createElement('div');
-                detail.className = 'ground-detail';
-                ground.appendChild(detail);
-            }
-
-            initEventListeners() {
-                this.launchBtn.addEventListener('click', () => {
-                    this.soundEffects.playSound('beep');
-                    this.startLaunch();
-                });
-            }
-
-            startTelemetryUpdates() {
-                setInterval(() => {
-                    if (this.isLaunching) {
-                        this.altitude += this.velocity * 0.1;
-                        this.velocity += 15;
-                        this.thrust = Math.min(100, this.thrust + 5);
-                        
-                        this.telemetryAltitude.textContent = Math.round(this.altitude) + ' m';
-                        this.telemetryVelocity.textContent = Math.round(this.velocity) + ' m/s';
-                        this.telemetryThrust.textContent = Math.round(this.thrust) + '%';
-                        
-                        const fuelRemaining = Math.max(0, 100 - (this.altitude / 15));
-                        this.progressFuel.style.width = fuelRemaining + '%';
-                        this.fuelPercent.textContent = Math.round(fuelRemaining) + '%';
-                        
-                        const oxidizerRemaining = Math.max(0, 100 - (this.altitude / 18));
-                        this.progressOxidizer.style.width = oxidizerRemaining + '%';
-                        this.oxidizerPercent.textContent = Math.round(oxidizerRemaining) + '%';
-                        
-                        const temp = 22 + (this.altitude / 8);
-                        this.telemetryTemp.textContent = Math.round(temp) + '°C';
-                        
-                        if (this.altitude > 500) {
-                            this.telemetryTrajectory.textContent = 'ASCENT';
-                        }
-                        if (this.altitude > 1000) {
-                            this.stage.textContent = '2';
-                        }
-                    }
-                }, 100);
             }
 
             createParticle(x, y, type = 'fire') {
@@ -1292,9 +841,9 @@
                 particle.className = type === 'fire' ? 'particle' : 'smoke-particle';
                 
                 const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 250 + 150;
+                const distance = Math.random() * 150 + 80;
                 const xMove = Math.cos(angle) * distance;
-                const yMove = Math.sin(angle) * distance - 250;
+                const yMove = Math.sin(angle) * distance - 150;
                 
                 particle.style.setProperty('--x', xMove + 'px');
                 particle.style.setProperty('--y', yMove + 'px');
@@ -1302,17 +851,13 @@
                 particle.style.top = y + 'px';
                 
                 if (type === 'smoke') {
-                    const size = Math.random() * 40 + 30;
-                    particle.style.width = size + 'px';
-                    particle.style.height = size + 'px';
-                } else {
-                    const size = Math.random() * 6 + 3;
+                    const size = Math.random() * 20 + 15;
                     particle.style.width = size + 'px';
                     particle.style.height = size + 'px';
                 }
                 
                 this.effects.appendChild(particle);
-                setTimeout(() => particle.remove(), 2500);
+                setTimeout(() => particle.remove(), 1500);
             }
 
             createShockwave(x, y) {
@@ -1321,26 +866,15 @@
                 shockwave.style.left = x + 'px';
                 shockwave.style.top = y + 'px';
                 this.effects.appendChild(shockwave);
-                setTimeout(() => shockwave.remove(), 1200);
+                setTimeout(() => shockwave.remove(), 800);
             }
 
             createTrail(x, y) {
                 const trail = document.createElement('div');
                 trail.className = 'trail';
                 trail.style.left = x + 'px';
-                trail.style.bottom = '0px';
                 this.effects.appendChild(trail);
-                setTimeout(() => trail.remove(), 2000);
-            }
-
-            createFlame() {
-                const flame = document.createElement('div');
-                flame.className = 'flame';
-                const rect = this.missile.getBoundingClientRect();
-                flame.style.left = rect.left + rect.width / 2 + 'px';
-                flame.style.opacity = '1';
-                this.effects.appendChild(flame);
-                return flame;
+                setTimeout(() => trail.remove(), 1500);
             }
 
             startLaunch() {
@@ -1349,19 +883,9 @@
                 this.isLaunching = true;
                 this.launchBtn.disabled = true;
                 this.countdown = 5;
-                this.altitude = 0;
-                this.velocity = 0;
-                this.thrust = 0;
                 
-                this.statusEl.textContent = 'COUNTDOWN ACTIVE';
-                this.telemetryStatus.textContent = 'COUNTDOWN';
-                this.launchAuth.textContent = 'AUTHORIZED';
-                this.systemCheck.textContent = 'GREEN';
-                this.rangeSafety.textContent = 'CLEAR';
-                this.weather.textContent = 'NOMINAL';
-                this.wind.textContent = '3 knots';
-                
-                this.soundEffects.playSound('warning');
+                this.statusEl.textContent = 'COUNTDOWN';
+                this.simpleStatus.textContent = 'COUNTDOWN';
                 
                 this.interval = setInterval(() => this.updateCountdown(), 1000);
             }
@@ -1369,148 +893,100 @@
             updateCountdown() {
                 if (this.countdown > 0) {
                     this.countdownEl.textContent = this.countdown;
-                    this.telemetryTime.textContent = `00:0${this.countdown}`;
+                    this.simpleTime.textContent = `00:0${this.countdown}`;
                     
-                    this.countdownEl.style.transform = 'scale(1.15)';
-                    setTimeout(() => {
-                        this.countdownEl.style.transform = 'scale(1)';
-                    }, 150);
+                    this.countdownEl.style.transform = 'scale(1.1)';
+                    setTimeout(() => this.countdownEl.style.transform = 'scale(1)', 100);
                     
                     this.glitch.classList.add('active');
-                    setTimeout(() => {
-                        this.glitch.classList.remove('active');
-                    }, 80);
+                    setTimeout(() => this.glitch.classList.remove('active'), 50);
                     
-                    if (this.countdown <= 2) {
+                    if (this.countdown === 1) {
                         document.body.classList.add('shake');
-                        setTimeout(() => {
-                            document.body.classList.remove('shake');
-                        }, 250);
+                        setTimeout(() => document.body.classList.remove('shake'), 200);
                     }
                     
-                    this.soundEffects.playSound('countdown');
+                    this.sound.playSound('countdown');
                     
                     const rect = this.missile.getBoundingClientRect();
-                    for (let i = 0; i < 2; i++) {
-                        this.createParticle(
-                            rect.left + rect.width / 2,
-                            rect.bottom,
-                            'smoke'
-                        );
-                    }
+                    this.createParticle(rect.left + rect.width/2, rect.bottom, 'smoke');
                     
                     this.countdown--;
                 } else {
                     clearInterval(this.interval);
-                    this.executeLaunch();
+                    this.launchMissile();
                 }
             }
 
-            executeLaunch() {
+            launchMissile() {
                 this.countdownEl.textContent = '0';
-                this.telemetryTime.textContent = '00:00';
-                this.statusEl.textContent = '🚀 MISSILE LAUNCHED!';
-                this.telemetryStatus.textContent = 'LAUNCH';
-                this.telemetryGuidance.textContent = 'ACTIVE';
-                this.telemetryPayload.textContent = 'DEPLOYED';
-                this.telemetryTrajectory.textContent = 'ASCENT';
+                this.simpleTime.textContent = '00:00';
+                this.statusEl.textContent = '🚀 LAUNCH!';
+                this.simpleStatus.textContent = 'LAUNCH';
                 
-                this.soundEffects.playSound('launch');
+                this.sound.playSound('launch');
                 
                 this.glitch.classList.add('active');
                 
-                document.body.style.animation = 'shake 0.4s infinite';
+                document.body.style.animation = 'shake 0.5s infinite';
                 
-                this.missile.style.animation = 'launchMissile 3s forwards';
+                this.missile.style.animation = 'launchMissile 2.5s forwards';
                 
                 const exhaust = document.getElementById('exhaust');
                 exhaust.style.animation = 'exhaustPulse 0.1s infinite';
                 exhaust.style.opacity = '1';
                 
-                const flame = this.createFlame();
-                
                 const rect = this.missile.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
+                const centerX = rect.left + rect.width/2;
                 const bottomY = rect.bottom;
                 
                 this.createTrail(centerX, bottomY);
                 
-                for (let i = 0; i < 40; i++) {
+                for (let i = 0; i < 20; i++) {
                     setTimeout(() => {
                         this.createParticle(centerX, bottomY, 'fire');
-                        if (i % 4 === 0) {
-                            this.createParticle(centerX, bottomY, 'smoke');
-                        }
-                    }, i * 25);
+                        if (i % 5 === 0) this.createParticle(centerX, bottomY, 'smoke');
+                    }, i * 30);
                 }
                 
-                for (let i = 0; i < 5; i++) {
-                    setTimeout(() => {
-                        this.createShockwave(centerX, bottomY);
-                    }, i * 150);
+                for (let i = 0; i < 3; i++) {
+                    setTimeout(() => this.createShockwave(centerX, bottomY), i * 150);
                 }
                 
-                setTimeout(() => {
-                    flame.remove();
-                    this.endLaunch();
-                }, 2800);
+                setTimeout(() => this.endLaunch(), 2000);
             }
 
             endLaunch() {
                 const rect = this.missile.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top - 150;
+                const centerX = rect.left + rect.width/2;
+                const centerY = rect.top - 80;
                 
-                this.soundEffects.playSound('explosion');
+                this.sound.playSound('explosion');
                 
-                for (let i = 0; i < 30; i++) {
-                    setTimeout(() => {
-                        this.createParticle(centerX, centerY, 'fire');
-                    }, i * 20);
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => this.createParticle(centerX, centerY, 'fire'), i * 20);
                 }
                 
                 this.createShockwave(centerX, centerY);
                 
-                this.statusEl.textContent = '✅ MISSION COMPLETE';
-                this.telemetryStatus.textContent = 'COMPLETE';
-                this.telemetryGuidance.textContent = 'LOST';
-                this.telemetryTrajectory.textContent = 'IMPACT';
-                this.systemCheck.textContent = 'COMPLETE';
+                this.statusEl.textContent = 'COMPLETE';
+                this.simpleStatus.textContent = 'COMPLETE';
                 
                 document.body.style.animation = '';
                 this.glitch.classList.remove('active');
                 
-                setTimeout(() => this.resetLaunch(), 3500);
+                setTimeout(() => this.reset(), 2500);
             }
 
-            resetLaunch() {
+            reset() {
                 this.isLaunching = false;
                 this.launchBtn.disabled = false;
                 this.countdown = 5;
                 
                 this.countdownEl.textContent = '5';
-                this.telemetryTime.textContent = '00:05';
-                this.statusEl.textContent = 'STANDING BY';
-                this.telemetryStatus.textContent = 'STANDBY';
-                this.telemetryFuel.textContent = '100%';
-                this.telemetryTemp.textContent = '22°C';
-                this.telemetryGuidance.textContent = 'LOCKED';
-                this.telemetryPayload.textContent = 'ARMED';
-                this.telemetryAltitude.textContent = '0 m';
-                this.telemetryVelocity.textContent = '0 m/s';
-                this.telemetryThrust.textContent = '0%';
-                this.telemetryTrajectory.textContent = 'NOMINAL';
-                this.systemCheck.textContent = 'GREEN';
-                this.launchAuth.textContent = 'PENDING';
-                this.rangeSafety.textContent = 'CLEAR';
-                this.weather.textContent = 'NOMINAL';
-                this.wind.textContent = '5 knots';
-                this.stage.textContent = '1';
-                
-                this.progressFuel.style.width = '100%';
-                this.fuelPercent.textContent = '100%';
-                this.progressOxidizer.style.width = '100%';
-                this.oxidizerPercent.textContent = '100%';
+                this.simpleTime.textContent = '00:05';
+                this.statusEl.textContent = 'STANDBY';
+                this.simpleStatus.textContent = 'STANDBY';
                 
                 this.missile.style.animation = 'float 4s ease-in-out infinite';
                 
@@ -1523,10 +999,14 @@
         }
 
         const soundEffects = new SoundEffects();
-        let launchController;
+        let controller;
 
         window.addEventListener('load', () => {
-            launchController = new LaunchController();
+            controller = new MobileLaunchController();
+            
+            document.getElementById('launchBtn').addEventListener('click', () => {
+                controller.startLaunch();
+            });
         });
     </script>
 </body>
